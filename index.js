@@ -1,6 +1,14 @@
 const net = require("net");
+const express = require("express");
+const home = require("./home");
 
-// Create a TCP server
+const app = express();
+app.use(express.json());
+
+app.use("/home", home);
+
+const port = process.env.PORT || 9001;
+
 const server = net.createServer((socket) => {
   console.log("Client connected");
 
@@ -40,3 +48,5 @@ const PORT = 3000;
 server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
+
+app.listen(port, () => console.log(`Listening to port ${port}`));
