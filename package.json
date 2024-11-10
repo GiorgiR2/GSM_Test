@@ -2,16 +2,12 @@
   "name": "GSM_Test",
   "version": "1.0.0",
   "main": "index.js",
-  "engines": {
-    "node": "20.x"
-  },
   "scripts": {
     "start": "node index.json"
   },
   "license": "MIT",
   "dependencies": {
-    "express": "^4.21.1",
-    "net": "^1.0.2"
+    "express": "^4.21.1"
   },
   "builds": [
     {
