@@ -4,7 +4,7 @@ const router = express.Router();
 const { saveWeather } = require("../js/weatherOps");
 
 router.route("/home/:temp/:humidity").get((req, res) => {
-  const { temp, humidity } = req.query;
+  const { temp, humidity } = req.params;
 
   saveWeather(temp, humidity);
 
