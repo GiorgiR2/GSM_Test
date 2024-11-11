@@ -10,7 +10,7 @@ router.route("/home/:temp/:humidity").get((req, res) => {
 
   return res.status(200).json({
     title: "Express Testing",
-    message: `The app is working properly! ${temp} ${humidity} ${gio}`,
+    message: `The app is working properly! ${temp} ${humidity}`,
   });
 });
 
