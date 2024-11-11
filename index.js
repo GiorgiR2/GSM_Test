@@ -1,21 +1,18 @@
 // const net = require("net");
 const express = require("express");
-const home = require("./home");
+const home = require("./routes/home");
 
-// const bp = require("body-parser");
+const dotenv = require("dotenv");
 
-// import bp from "body-parser";
+require("./config/db");
 
 const app = express();
-// app.use(bp.json());
-// app.use(bp.urlencoded({ entended: true }));
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
+app.use(home);
 
-app.use("/home", home);
-
-const port = process.env.PORT || 9001;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Listening to port ${port}`));
 
@@ -53,7 +50,6 @@ app.listen(port, () => console.log(`Listening to port ${port}`));
 //   });
 // });
 
-// Define the port the server should listen on
 // const PORT = 3000;
 // server.listen(PORT, () => {
 //   console.log(`Server listening on port ${PORT}`);
