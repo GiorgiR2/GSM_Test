@@ -7,4 +7,5 @@ const uri = process.env.MONGO_ADDRESS;
 mongoose.set("strictQuery", true);
 mongoose.connect(uri).then(() => {
   console.log("mongdb is connected");
+  console.log(`Key ${uri}`);
 });
