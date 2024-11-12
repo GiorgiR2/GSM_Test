@@ -10,7 +10,9 @@ const saveWeather = (temp, humidity) => {
     humidity,
   });
 
-  saveModel(weather);
+  // saveModel(weather);
+  console.log("save", temp, humidity);
+  weather.save();
 };
 
 module.exports = { saveWeather };
