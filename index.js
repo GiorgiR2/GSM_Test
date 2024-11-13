@@ -1,15 +1,22 @@
 // const net = require("net");
 const express = require("express");
-const home = require("./routes/home");
-
+const cors = require("cors");
 const dotenv = require("dotenv");
 
+const home = require("./routes/home");
+
 require("./config/db");
+
+const corsOptions = {
+  origin: "*",
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
 
 const app = express();
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-
+app.use(cors(corsOptions));
 app.use(home);
 
 const port = process.env.PORT || 5000;
