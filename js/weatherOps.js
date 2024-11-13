@@ -7,7 +7,7 @@ require("dotenv").config();
 
 const url = process.env.MONGO_ADDRESS;
 
-const saveWeather = (temp, humidity) => {
+const saveWeather = async (temp, humidity) => {
   const weather = new WeatherModel({
     _id: new mongoose.Types.ObjectId(),
     temp,
@@ -17,7 +17,7 @@ const saveWeather = (temp, humidity) => {
   // saveModel(weather);
   console.log("save", temp, humidity);
   console.log("uri", url);
-  weather.save();
+  await weather.save();
 };
 
 module.exports = { saveWeather };
